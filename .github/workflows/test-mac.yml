@@ -23,7 +23,7 @@ jobs:
         run: npm ci
       
       - name: Check Mobilewright environment
-        run: npx mobilewright doctor
+        run: npx mobilewright doctor --category ios
 
       - name: Run Mobilewright tests
         run: npx mobilewright test
