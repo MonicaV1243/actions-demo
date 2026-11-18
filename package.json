@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "@mobilewright/test": "^0.0.70",
+    "@types/node": "^26.6.6",
+    "mobilewright": "^0.0.70"
+  }
+}

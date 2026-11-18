@@ -1,12 +1,29 @@
 name: Test Mac Self Hosted runner
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
-  test:
+  mobilewright-test:
     runs-on: self-hosted
 
     steps:
-      - name: Check Mac
-        run: echo "Hello!"
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Check Mobilewright environment
+        run: npx mobilewright doctor
+
+      - name: Run Mobilewright tests
+        run: npx mobilewright test
